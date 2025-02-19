@@ -1,0 +1,92 @@
+// .cursor {
+//   pointer-events: none;
+//   position: fixed;
+//   display: block;
+//   border-radius: 0;
+//   transform-origin: center center;
+//   top: 0;
+//   left: 0;
+
+//   z-index: 99998;
+//   filter: url(#goo);
+//   // mix-blend-mode: difference;
+//   & span {
+//     position: absolute;
+//     display: block;
+//     width: 2.6rem;
+//     height: 4.4rem;
+//     // border-radius: 2rem;
+//     // background-color: #ffffff;
+//     // transform-origin: center center;
+//     transform: translate(-50%, -50%);
+//     background: url('./assets/images/cursor.svg') top/cover;
+
+//     // cursor: url('./assets/images/cursor.svg') 15 40, auto;
+//     // clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+//     &:first-of-type {
+//       z-index: 500;
+//     }
+//   }
+// }
+
+.cursor-global {
+}
+.main-wrap-cursor-top {
+}
+.wrap-lighten-cursor {
+  z-index: 999;
+  pointer-events: none;
+  mix-blend-mode: lighten;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  inset: 0%;
+}
+.cursor {
+  border-radius: 50%;
+  width: 3.6rem;
+  height: 3.6rem;
+  position: absolute;
+  overflow: hidden;
+}
+.cursor-rotate {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  position: absolute;
+  transform: scale(1) rotate(0);
+}
+.cursor-lighten-default {
+  background-image: url(./assets/images/cursorColor.avif);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.main-wrap-cursor-bottom {
+}
+.wrap-background-cursor-bottom {
+  z-index: 10;
+  pointer-events: none;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  inset: 0%;
+}
+.cursor-background-default {
+  background-image: url(./assets/images/cursor.avif);
+  background-position: 50%;
+  background-size: cover;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: rotate(20deg);
+}
