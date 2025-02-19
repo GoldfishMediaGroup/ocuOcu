@@ -173,5 +173,9 @@
     color: $white;
     position: relative;
     z-index: 500;
+    transition: background 0.4s;
+    &:hover {
+      background: #3a53ab;
+    }
   }
 }
