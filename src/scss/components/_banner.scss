@@ -101,12 +101,19 @@
   &__info-block {
     height: 42rem;
     padding: 3rem;
+    position: relative;
     &:not(:last-of-type) {
       border-right: 0.1rem solid rgba(255, 255, 255, 0.4);
     }
     &:not(.banner__info-block--empty) {
       &::before {
         position: absolute;
+        content:'';
+        background: url(./assets/images/corner.svg) no-repeat top/cover;
+        width: 1.9rem;
+        height: 1.9rem;
+        top: 0.4rem;
+        right: 0.4rem;
       }
     }
   }
