@@ -14,7 +14,7 @@
 //     position: absolute;
 //     display: block;
 //     width: 2.6rem;
-//     height: 4.4rem;
+//     height: 2.4rem;
 //     // border-radius: 2rem;
 //     // background-color: #ffffff;
 //     // transform-origin: center center;
@@ -29,64 +29,147 @@
 //   }
 // }
 
-.cursor-global {
-}
-.main-wrap-cursor-top {
-}
-.wrap-lighten-cursor {
-  z-index: 999;
-  pointer-events: none;
-  mix-blend-mode: lighten;
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  width: 100%;
-  height: 100%;
-  display: flex;
-  position: fixed;
-  inset: 0%;
-}
+// .cursor-global {
+// }
+// .main-wrap-cursor-top {
+// }
+// .wrap-lighten-cursor {
+//   z-index: 11000;
+//   pointer-events: none;
+//   mix-blend-mode: lighten;
+
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   position: fixed;
+//   inset: 0%;
+// }
+// .cursor {
+//   border-radius: 50%;
+//   width: 3.6rem;
+//   height: 3.6rem;
+//   position: absolute;
+//   overflow: hidden;
+// }
+// .cursor-rotate {
+//   width: 100%;
+//   height: 100%;
+//   transition: transform 0.5s;
+//   position: absolute;
+//   transform: scale(1) rotate(0);
+// }
+// .cursor-lighten-default {
+//   background-image: url(./assets/images/cursorColor.avif);
+//   background-position: 50%;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   border-radius: 50%;
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+// }
+// .main-wrap-cursor-bottom {
+// }
+// .wrap-background-cursor-bottom {
+//   z-index: 10;
+//   pointer-events: none;
+
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   position: fixed;
+//   inset: 0%;
+// }
+// .cursor-background-default {
+//   background-image: url(./assets/images/cursor.avif);
+//   background-position: 50%;
+//   background-size: cover;
+//   border-radius: 50%;
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   transform: rotate(20deg);
+// }
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+
 .cursor {
-  border-radius: 50%;
-  width: 3.6rem;
-  height: 3.6rem;
-  position: absolute;
-  overflow: hidden;
-}
-.cursor-rotate {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s;
-  position: absolute;
-  transform: scale(1) rotate(0);
-}
-.cursor-lighten-default {
-  background-image: url(./assets/images/cursorColor.avif);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.main-wrap-cursor-bottom {
-}
-.wrap-background-cursor-bottom {
-  z-index: 10;
   pointer-events: none;
-
-  width: 100%;
-  height: 100%;
-  display: flex;
   position: fixed;
-  inset: 0%;
-}
-.cursor-background-default {
-  background-image: url(./assets/images/cursor.avif);
-  background-position: 50%;
-  background-size: cover;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform: rotate(20deg);
+  display: block;
+  border-radius: 0;
+  transform-origin: center center;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* .cursor__eye-wrapper */
+
+  &__eye-wrapper {
+
+    position: absolute;
+    display: block;
+    width: 4.4rem;
+    height: 2.4rem;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+  }
+
+  /* .cursor__eye-box */
+
+  &__eye-box {
+    position: absolute;
+    display: block;
+    width: 4.4rem;
+    height: 2.4rem;
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+  }
+
+  /* .cursor__pupil-box */
+
+  &__pupil-box {
+    position: absolute;
+    display: block;
+    width: 4.4rem;
+    height: 2.4rem;
+
+//   position: absolute;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+  }
+
+  /* .cursor__pupil */
+
+  &__pupil {
+    transition: transform 0.5s;
+    transform: scale(1) rotate(0);
+    transform-origin: center center;
+  }
 }

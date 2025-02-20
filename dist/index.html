@@ -3,10 +3,176 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html {
+        font-size: 0.5208335vw;
+      }
+
+      @media (max-width: 48em) {
+        html {
+          font-size: 5px;
+          font-size: 1.5625vw;
+          font-size: calc((100 / 375) * 5vw);
+          -webkit-text-size-adjust: none;
+        }
+      }
+    </style>
+    <style>
+      .intro {
+        position: fixed;
+        inset: 0;
+        background: #223064;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.8s, z-index 0.8s;
+      }
+
+      .intro-remove {
+        opacity: 0;
+        z-index: -10;
+      }
+
+      .intro svg,
+      .intro img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .intro__eye-wrapper {
+        position: absolute;
+        width: 88.8rem;
+        height: 44.4rem;
+      }
+
+      .intro__eye-bg-box,
+      .intro__eye-box,
+      .intro__pupil-box {
+        position: absolute;
+        width: 88.8rem;
+        height: 44.4rem;
+        transform-origin: center center;
+        overflow: hidden;
+        top: 3rem;
+      }
+      .intro__eye-bg-box svg {
+        width: 88.8rem;
+        height: 44.4rem;
+      }
+
+      .intro__logo-box {
+        position: absolute;
+        width: 60.4rem;
+        height: 15.4rem;
+        transform: translateX(-10rem);
+        opacity: 0;
+      }
+
+      .intro__logo-img-box {
+        position: absolute;
+        width: 60.4rem;
+        height: 15.4rem;
+        top: -20rem;
+        left: -35rem;
+      }
+
+      .intro__bg-box {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        transform: translateY(-100%);
+      }
+    </style>
+
     <title>Главная</title>
   <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
-  <body>
+  <body style="overflow: hidden">
     <div class="wrapper">
+      <div class="intro">
+  <div class="intro__eye-wrapper">
+    <div class="intro__eye-bg-box">
+      <svg viewBox="0 0 882 446" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_176_770)">
+        <g clip-path="url(#clip1_176_770)">
+        <path d="M872.584 247.588C817.653 176.772 751.509 113.579 673.316 69.7615C595.123 25.9441 504.39 2.19123 415.182 10.9941C334.924 18.9117 258.944 52.5001 191.472 96.6126C124.049 140.774 64.1507 195.362 9.41577 250.883C38.4307 250.441 66.2653 262.932 90.1165 279.456C113.968 295.979 134.721 316.487 157.244 334.781C239.765 402.056 346.53 438.89 452.95 436.775C559.371 434.661 664.611 393.647 744.378 323.175C763.508 306.258 781.31 287.668 802.359 273.21C823.407 258.752 848.635 248.474 872.584 247.687V247.588Z" fill="#711E40" stroke="white" stroke-width="17.2122" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M728.031 335.76L695.591 264.168M695.591 264.168L703.422 188.102M695.591 264.168L660.914 257.456" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M606.5 403.599C610.304 358.793 603.677 343.548 571.538 304.817" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M300.998 408.816V370.313C300.998 365.906 303.073 361.757 306.598 359.113L342.71 332.029" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M478.741 435.319L494.872 406.139C497.468 401.443 497.151 395.676 494.057 391.292L477.099 367.268M484.438 305.984L463.213 327.74C458.5 332.571 457.905 340.076 461.797 345.59L477.099 367.268M477.099 367.268L413.955 354.216" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M230.041 382.814L206.787 343.648C203.967 338.9 204.202 332.938 207.387 328.427L224.17 304.651M216.831 243.367L238.055 265.123C242.768 269.954 243.364 277.459 239.472 282.973L224.17 304.651M224.17 304.651L287.313 291.599" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+        <path d="M872.584 247.588C817.653 176.772 751.509 113.579 673.316 69.7615C595.123 25.9441 504.39 2.19123 415.182 10.9941C334.924 18.9117 258.944 52.5001 191.472 96.6126C124.049 140.774 64.1507 195.362 9.41577 250.883C38.4307 250.441 66.2653 262.932 90.1165 279.456C113.968 295.979 134.721 316.487 157.244 334.781C239.765 402.056 346.53 438.89 452.95 436.775C559.371 434.661 664.611 393.647 744.378 323.175C763.508 306.258 781.31 287.668 802.359 273.21C823.407 258.752 848.635 248.474 872.584 247.687V247.588Z" stroke="white" stroke-width="17.2122" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+        <defs>
+        <clipPath id="clip0_176_770">
+        <rect width="880.381" height="444.862" fill="white" transform="translate(0.80957 0.568359)"></rect>
+        </clipPath>
+        <clipPath id="clip1_176_770">
+        <rect width="861" height="462" fill="white" transform="translate(-12 -8)"></rect>
+        </clipPath>
+        </defs>
+        </svg>
+    </div>
+    <div class="intro__eye-box">
+      <svg viewBox="0 0 882 446" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_176_770)">
+        <path d="M872.584 247.588C817.653 176.772 751.509 113.579 673.316 69.7615C595.123 25.9441 504.39 2.19123 415.182 10.9941C334.924 18.9117 258.944 52.5001 191.472 96.6126C124.049 140.774 64.1507 195.362 9.41577 250.883C38.4307 250.441 66.2653 262.932 90.1165 279.456C113.968 295.979 134.721 316.487 157.244 334.781C239.765 402.056 346.53 438.89 452.95 436.775C559.371 434.661 664.611 393.647 744.378 323.175C763.508 306.258 781.31 287.668 802.359 273.21C823.407 258.752 848.635 248.474 872.584 247.687V247.588Z" stroke="white" stroke-width="17.2122" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M90.1165 279.457C66.2653 262.933 38.3815 250.442 9.41577 250.884C39.365 220.542 70.7897 190.445 104.181 162.217C87.4118 198.805 82.7399 241 91.2968 280.342" fill="white"></path>
+        <path d="M90.1165 279.457C66.2653 262.933 38.3815 250.442 9.41577 250.884C39.365 220.542 70.7897 190.445 104.181 162.217C87.4118 198.805 82.7399 241 91.2968 280.342" stroke="white" stroke-width="7.37667" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+        <defs>
+        <clipPath id="clip0_176_770">
+        <rect width="880.381" height="444.862" fill="white" transform="translate(0.80957 0.568359)"></rect>
+        </clipPath>
+        </defs>
+        </svg>
+        
+    </div>
+    <div class="intro__pupil-box">
+      <svg viewBox="0 0 882 446" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_176_770)">
+          <mask id="mask0_176_770" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="-12" y="-8" width="894" height="462">
+            <g clip-path="url(#clip1_176_770)">
+              <path d="M872.584 247.588C817.653 176.772 751.509 113.579 673.316 69.7615C595.123 25.9441 504.39 2.19123 415.182 10.9941C334.924 18.9117 258.944 52.5001 191.472 96.6126C124.049 140.774 64.1507 195.362 9.41577 250.883C38.4307 250.441 66.2653 262.932 90.1165 279.456C113.968 295.979 134.721 316.487 157.244 334.781C239.765 402.056 346.53 438.89 452.95 436.775C559.371 434.661 664.611 393.647 744.378 323.175C763.508 306.258 781.31 287.668 802.359 273.21C823.407 258.752 848.635 248.474 872.584 247.687V247.588Z" fill="#711E40" stroke="white" stroke-width="17.2122" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M728.031 335.76L695.591 264.168M695.591 264.168L703.422 188.102M695.591 264.168L660.914 257.456" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M606.5 403.599C610.304 358.793 603.677 343.548 571.538 304.817" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M300.998 408.816V370.313C300.998 365.906 303.073 361.757 306.598 359.113L342.71 332.029" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M478.741 435.319L494.872 406.139C497.468 401.443 497.151 395.676 494.057 391.292L477.099 367.268M484.438 305.984L463.213 327.74C458.5 332.571 457.905 340.076 461.797 345.59L477.099 367.268M477.099 367.268L413.955 354.216" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M230.041 382.814L206.787 343.648C203.967 338.9 204.202 332.938 207.387 328.427L224.17 304.651M216.831 243.367L238.055 265.123C242.768 269.954 243.364 277.459 239.472 282.973L224.17 304.651M224.17 304.651L287.313 291.599" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+            <path d="M872.584 247.588C817.653 176.772 751.509 113.579 673.316 69.7615C595.123 25.9441 504.39 2.19123 415.182 10.9941C334.924 18.9117 258.944 52.5001 191.472 96.6126C124.049 140.774 64.1507 195.362 9.41577 250.883C38.4307 250.441 66.2653 262.932 90.1165 279.456C113.968 295.979 134.721 316.487 157.244 334.781C239.765 402.056 346.53 438.89 452.95 436.775C559.371 434.661 664.611 393.647 744.378 323.175C763.508 306.258 781.31 287.668 802.359 273.21C823.407 258.752 848.635 248.474 872.584 247.687V247.588Z" stroke="white" stroke-width="17.2122" stroke-linecap="round" stroke-linejoin="round"></path>
+          </mask>
+          <g mask="url(#mask0_176_770)">
+            <g class="intro__pupil" style="display: block">
+              <circle cx="411.413" cy="120.885" r="160.53" stroke="white" stroke-width="17"></circle>
+              <path d="M433.786 57.2055C404.132 47.8617 369.117 59.271 350.626 84.3025C332.135 109.334 331.545 146.168 349.249 171.741C366.953 197.313 401.525 209.853 431.524 201.444C461.473 193.035 484.537 164.364 486.357 133.284C488.127 102.252 469.44 68.4181 433.835 57.2055H433.786Z" fill="white" stroke="white" stroke-width="7.37667" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </g>
+        </g>
+        <defs>
+          <clipPath id="clip0_176_770">
+            <rect width="880.381" height="444.862" fill="white" transform="translate(0.80957 0.568359)"></rect>
+          </clipPath>
+          <clipPath id="clip1_176_770">
+            <rect width="861" height="462" fill="white" transform="translate(-12 -8)"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+  </div>
+  <div class="intro__logo-box">
+    <div class="intro__logo-img-box">
+      <img src="./assets/images/logoIntro.svg" alt="" style="width: 100%; height: 100%">
+    </div>
+  </div>
+
+  <div class="intro__bg-box"></div>
+</div>
 
       <header class="header">
   <div class="header__container container">
@@ -41,10 +207,60 @@
   </div>
 </header>
 
+      <div class="cursor">
+  <div class="cursor__eye-wrapper">
+    <div class="cursor__eye-box">
+      <svg viewBox="0 0 882 446" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_176_770)">
+          <path d="M872.584 247.588C817.653 176.772 751.509 113.579 673.316 69.7615C595.123 25.9441 504.39 2.19123 415.182 10.9941C334.924 18.9117 258.944 52.5001 191.472 96.6126C124.049 140.774 64.1507 195.362 9.41577 250.883C38.4307 250.441 66.2653 262.932 90.1165 279.456C113.968 295.979 134.721 316.487 157.244 334.781C239.765 402.056 346.53 438.89 452.95 436.775C559.371 434.661 664.611 393.647 744.378 323.175C763.508 306.258 781.31 287.668 802.359 273.21C823.407 258.752 848.635 248.474 872.584 247.687V247.588Z" stroke="white" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M90.1165 279.457C66.2653 262.933 38.3815 250.442 9.41577 250.884C39.365 220.542 70.7897 190.445 104.181 162.217C87.4118 198.805 82.7399 241 91.2968 280.342" fill="white"></path>
+          <path d="M90.1165 279.457C66.2653 262.933 38.3815 250.442 9.41577 250.884C39.365 220.542 70.7897 190.445 104.181 162.217C87.4118 198.805 82.7399 241 91.2968 280.342" stroke="white" stroke-width="7.37667" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+        <defs>
+          <clipPath id="clip0_176_770">
+            <rect width="880.381" height="444.862" fill="white" transform="translate(0.80957 0.568359)"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <div class="cursor__pupil-box">
+      <svg viewBox="0 0 882 446" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_176_770)">
+          <mask id="mask0_176_770" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="-12" y="-8" width="894" height="462">
+            <g clip-path="url(#clip1_176_770)">
+              <path d="M872.584 247.588C817.653 176.772 751.509 113.579 673.316 69.7615C595.123 25.9441 504.39 2.19123 415.182 10.9941C334.924 18.9117 258.944 52.5001 191.472 96.6126C124.049 140.774 64.1507 195.362 9.41577 250.883C38.4307 250.441 66.2653 262.932 90.1165 279.456C113.968 295.979 134.721 316.487 157.244 334.781C239.765 402.056 346.53 438.89 452.95 436.775C559.371 434.661 664.611 393.647 744.378 323.175C763.508 306.258 781.31 287.668 802.359 273.21C823.407 258.752 848.635 248.474 872.584 247.687V247.588Z" fill="#711E40" stroke="white" stroke-width="17.2122" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M728.031 335.76L695.591 264.168M695.591 264.168L703.422 188.102M695.591 264.168L660.914 257.456" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M606.5 403.599C610.304 358.793 603.677 343.548 571.538 304.817" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M300.998 408.816V370.313C300.998 365.906 303.073 361.757 306.598 359.113L342.71 332.029" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M478.741 435.319L494.872 406.139C497.468 401.443 497.151 395.676 494.057 391.292L477.099 367.268M484.438 305.984L463.213 327.74C458.5 332.571 457.905 340.076 461.797 345.59L477.099 367.268M477.099 367.268L413.955 354.216" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M230.041 382.814L206.787 343.648C203.967 338.9 204.202 332.938 207.387 328.427L224.17 304.651M216.831 243.367L238.055 265.123C242.768 269.954 243.364 277.459 239.472 282.973L224.17 304.651M224.17 304.651L287.313 291.599" stroke="white" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+            <path d="M872.584 247.588C817.653 176.772 751.509 113.579 673.316 69.7615C595.123 25.9441 504.39 2.19123 415.182 10.9941C334.924 18.9117 258.944 52.5001 191.472 96.6126C124.049 140.774 64.1507 195.362 9.41577 250.883C38.4307 250.441 66.2653 262.932 90.1165 279.456C113.968 295.979 134.721 316.487 157.244 334.781C239.765 402.056 346.53 438.89 452.95 436.775C559.371 434.661 664.611 393.647 744.378 323.175C763.508 306.258 781.31 287.668 802.359 273.21C823.407 258.752 848.635 248.474 872.584 247.687V247.588Z" stroke="white" stroke-width="17.2122" stroke-linecap="round" stroke-linejoin="round"></path>
+          </mask>
+          <g mask="url(#mask0_176_770)">
+            <g class="cursor__pupil" style="display: block">
+              <circle cx="411.413" cy="120.885" r="160.53" stroke="white" stroke-width="17"></circle>
+              <path d="M433.786 57.2055C404.132 47.8617 369.117 59.271 350.626 84.3025C332.135 109.334 331.545 146.168 349.249 171.741C366.953 197.313 401.525 209.853 431.524 201.444C461.473 193.035 484.537 164.364 486.357 133.284C488.127 102.252 469.44 68.4181 433.835 57.2055H433.786Z" fill="white" stroke="white" stroke-width="7.37667" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </g>
+        </g>
+        <defs>
+          <clipPath id="clip0_176_770">
+            <rect width="880.381" height="444.862" fill="white" transform="translate(0.80957 0.568359)"></rect>
+          </clipPath>
+          <clipPath id="clip1_176_770">
+            <rect width="861" height="462" fill="white" transform="translate(-12 -8)"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+  </div>
+</div>
+
       <main>
         <section class="banner data-ripples jquery-ripples" data-ripples-img="./assets/images/bannerBg.webp" style="background-image: none">
   <div class="banner__inner">
-    <div class="main-wrap-cursor-bottom">
+    <!-- <div class="main-wrap-cursor-bottom">
   <div class="wrap-background-cursor-bottom">
     <div class="cursor">
       <div class="cursor-rotate" style="cursor: none; transform: rotate(-10915deg)">
@@ -53,7 +269,7 @@
     </div>
   </div>
 </div>
-
+ -->
     
 
     <div class="banner__content">
@@ -190,7 +406,9 @@
 </section>
 
       </main>
-      <div class="main-wrap-cursor-top">
+
+      
+      <!-- <div class="main-wrap-cursor-top">
   <div class="wrap-lighten-cursor">
     <div class="cursor">
       <div class="cursor-rotate">
@@ -212,9 +430,7 @@
     </div>
   </div>
 </div>
-
-
-
+ -->
     </div>
   </body>
 </html>

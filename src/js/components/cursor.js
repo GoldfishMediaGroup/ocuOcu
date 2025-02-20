@@ -111,11 +111,11 @@ function cursor() {
 
   // Mazette скрипт: Пользовательский курсор с движением и вращением
 
-  const cursors = document.querySelectorAll('.cursor-rotate'); // Выбирает все элементы с классом .cursor-rotate
+  const cursors = document.querySelectorAll('.cursor__pupil'); // Выбирает все элементы с классом .cursor-rotate
 
   if (cursors.length > 0) {
     let movementHistory = []; // История последних перемещений
-    const maxHistory = 5; // Максимальное количество точек для учета
+    const maxHistory = 7; // Максимальное количество точек для учета
     let currentRotation = null; // Текущий угол поворота
     const segmentAngles = {
       0: 290, // Низ
@@ -180,7 +180,7 @@ function cursor() {
       }
 
       const avgVector = calculateAverageVector(movementHistory);
-      let averageAngle = calculateAngleFromVector(avgVector.dx, avgVector.dy);
+      let averageAngle = calculateAngleFromVector(-avgVector.dx, -avgVector.dy);
       averageAngle = (averageAngle + 360) % 360;
 
       const segment = Math.floor(averageAngle / 45) % 8;
@@ -193,7 +193,7 @@ function cursor() {
       }
 
       cursors.forEach((cursor) => {
-        cursor.style.transform = `rotate(${currentRotation}deg)`;
+        cursor.style.transform = `scale(1.12) rotate(${currentRotation}deg)`;
       });
 
       requestAnimationFrame(animate);
@@ -213,8 +213,8 @@ function cursor() {
   if (cursorWrapper.length > 0) {
     document.addEventListener('mousemove', (event) => {
       cursorWrapper.forEach((cursorWrap) => {
-        cursorWrap.style.top = `${event.clientY - 13}px`;
-        cursorWrap.style.left = `${event.clientX - 13}px`;
+        cursorWrap.style.top = `${event.clientY}px`;
+        cursorWrap.style.left = `${event.clientX}px`;
       });
     });
   }
