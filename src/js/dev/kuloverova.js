@@ -14,6 +14,9 @@ import beautyAnim from '../components/beautyAnim';
 
 import intro from '../components/intro';
 
+import hoverLinks from '../components/hoverLinks';
+
+
 export const modules = {};
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,8 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     cursor();
   } catch {}
+  try {
+    hoverLinks();
+  } catch {}
 
   try {
     beautyAnim();
   } catch {}
+
+  
 });
