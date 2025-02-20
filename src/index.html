@@ -3,20 +3,107 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html {
+        font-size: 0.5208335vw;
+      }
+
+      @media (max-width: 48em) {
+        html {
+          font-size: 5px;
+          font-size: 1.5625vw;
+          font-size: calc((100 / 375) * 5vw);
+          -webkit-text-size-adjust: none;
+        }
+      }
+    </style>
+    <style>
+      .intro {
+        position: fixed;
+        inset: 0;
+        background: #223064;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.8s, z-index 0.8s;
+      }
+
+      .intro-remove {
+        opacity: 0;
+        z-index: -10;
+      }
+
+      .intro svg,
+      .intro img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .intro__eye-wrapper {
+        position: absolute;
+        width: 88.8rem;
+        height: 44.4rem;
+      }
+
+      .intro__eye-bg-box,
+      .intro__eye-box,
+      .intro__pupil-box {
+        position: absolute;
+        width: 88.8rem;
+        height: 44.4rem;
+        transform-origin: center center;
+        overflow: hidden;
+        top: 3rem;
+      }
+      .intro__eye-bg-box svg {
+        width: 88.8rem;
+        height: 44.4rem;
+      }
+
+      .intro__logo-box {
+        position: absolute;
+        width: 60.4rem;
+        height: 15.4rem;
+        transform: translateX(-10rem);
+        opacity: 0;
+      }
+
+      .intro__logo-img-box {
+        position: absolute;
+        width: 60.4rem;
+        height: 15.4rem;
+        top: -20rem;
+        left: -35rem;
+      }
+
+      .intro__bg-box {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        transform: translateY(-100%);
+      }
+    </style>
+
     <title>Главная</title>
   </head>
-  <body>
+  <body style="overflow: hidden">
     <div class="wrapper">
-
+      <include src="./components/_intro.html"></include>
       <include src="./components/_header.html"></include>
+      <include src="./components/_cursor.html"></include>
       <main>
         <include src="./components/_banner.html"></include>
         <include src="./components/_beauty.html"></include>
       </main>
-      <include src="./components/_cursorTop.html"></include>
-      <include src="./components/_cursorBottom.html"></include>
 
-
+      
+      <!-- <include src="./components/_cursorTop.html"></include>
+      <include src="./components/_cursorBottom.html"></include> -->
     </div>
   </body>
 </html>
