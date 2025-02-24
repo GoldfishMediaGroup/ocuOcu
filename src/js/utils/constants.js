@@ -9,12 +9,29 @@ export const rem = function (rem) {
 
 export let bodyLockStatus = true;
 
+function getScrollbarWidth() {
+  const scrollDiv = document.createElement('div');
+  scrollDiv.style.width = '100px';
+  scrollDiv.style.height = '100px';
+  scrollDiv.style.overflow = 'scroll';
+  scrollDiv.style.position = 'absolute';
+  scrollDiv.style.top = '-9999px';
+  document.body.appendChild(scrollDiv);
+
+  // Разница между полной шириной элемента и его клиентской частью
+  const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
+  // Удаляем элемент
+  document.body.removeChild(scrollDiv);
+
+  return scrollbarWidth;
+}
+
 export let bodyUnlock = (delay = 500) => {
   let body = document.querySelector('body');
   if (bodyLockStatus) {
     setTimeout(() => {
       body.style.paddingRight = '0px';
-      document.querySelector('.header__inner').style.paddingRight = '0px';
       document.documentElement.classList.remove('lock');
     }, delay);
     bodyLockStatus = false;
@@ -25,11 +42,11 @@ export let bodyUnlock = (delay = 500) => {
 };
 export let bodyLock = (delay = 500) => {
   let body = document.querySelector('body');
+
   if (bodyLockStatus) {
-    const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth;
     let scrollWith = getScrollbarWidth();
     body.style.paddingRight = `${scrollWith}px`;
-    document.querySelector('.header__inner').style.paddingRight = `${scrollWith}px`;
+
     document.documentElement.classList.add('lock');
     bodyLockStatus = false;
     setTimeout(function () {

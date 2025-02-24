@@ -14,13 +14,18 @@ import beautyAnim from '../components/beautyAnim';
 
 import intro from '../components/intro';
 
-
-
+import { bodyLock, bodyUnlock } from '../utils/constants';
 
 export const modules = {};
 
+bodyLock();
+document.body.style.overflow = 'hidden';
+
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
+
+
+
   try {
     ripplesBanner();
   } catch {}
@@ -29,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo(0, 0);
       document.querySelector('.intro').classList.add('intro-remove');
       document.body.style.overflow = '';
+      bodyUnlock();
       try {
         smoothScroll();
       } catch {}
@@ -40,6 +46,4 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     beautyAnim();
   } catch {}
-
-  
 });

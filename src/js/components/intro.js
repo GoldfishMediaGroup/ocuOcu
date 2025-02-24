@@ -12,52 +12,73 @@ function intro() {
 
     const tl = gsap.timeline();
     tl.to(eyebg, {
-      duration: 1.6,
+      duration: 1.4,
       width: 0,
-      delay: 0.8,
+      opacity: 0,
+      delay: 0.4,
       ease: 'linear'
     })
       .to(eyePupil, {
-        duration: 0.8,
-        x: '10rem',
+        duration: 0.6,
+        x: '-6rem',
+        ease: 'linear'
+      })
+      .to(eyePupil, {
+        duration: 1,
+        x: '+6rem',
+        ease: 'linear'
+      })
+      .to(eyePupil, {
+        duration: 0.6,
+        x: '0',
         ease: 'linear'
       })
       .to(
         eyeWrapper,
         {
-          duration: 0.8,
+          duration: 0.6,
           x: '18rem',
+          y: '3rem',
           ease: 'linear'
         },
-        '-=0.8'
+        '-=0.6'
       )
       .to(
         logo,
         {
-          duration: 0.8,
+          duration: 0.6,
           x: '0',
           opacity: 1,
           ease: 'linear'
         },
-        '-=0.8'
+        '-=0.6'
       )
       .to(eyePupil, {
-        duration: 0.8,
+        duration: 0.5,
         x: '0',
         ease: 'linear'
       })
 
+      .to(bg, {
+        duration: 0.6,
+        opacity: 1,
+        y: 0,
+        ease: 'ease'
+      })
+      .to(bg, {
+        duration: 0.6,
+        opacity: 0,
+        y: '-=100%',
+        ease: 'ease'
+      })
       .to(
-        bg,
+        preloader,
         {
-          duration: 0.6,
-          opacity: 1,
-          y: 0,
-          delay: 0.6,
+          opacity: 0,
           ease: 'ease',
           onComplete: () => resolve()
         },
-        '-=0.5'
+        '-=0.6'
       );
   });
 }
