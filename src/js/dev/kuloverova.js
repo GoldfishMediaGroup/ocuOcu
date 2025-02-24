@@ -25,11 +25,15 @@ document.body.style.overflow = 'hidden';
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
   try {
+    cursor();
+  } catch {}
+  try {
     ripplesBanner();
   } catch {}
   try {
     changeTheme();
   } catch {}
+  
   try {
     intro().then(() => {
       window.scrollTo(0, 0);
@@ -42,9 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   } catch {}
 
-  try {
-    cursor();
-  } catch {}
+
   try {
     beautyAnim();
   } catch {}
