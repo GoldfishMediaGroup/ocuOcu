@@ -7,13 +7,25 @@
       html {
         font-size: 0.5208335vw;
       }
+      :root {
+        --color-white: #f8f7f7;
+        --color-black: #161f3e;
+        --color-blue: #223064;
+      }
+      .light-theme {
+ 
+      }
+
+      .dark-theme {
+        
+      }
 
       @media (max-width: 48em) {
         html {
-          font-size: 5px;
+          /* font-size: 5px;
           font-size: 1.5625vw;
           font-size: calc((100 / 375) * 5vw);
-          -webkit-text-size-adjust: none;
+          -webkit-text-size-adjust: none; */
         }
       }
     </style>
@@ -21,7 +33,7 @@
       .intro {
         position: fixed;
         inset: 0;
-        background: #223064;
+        background: var(--color-blue);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -56,7 +68,6 @@
         height: 44.5rem;
         transform-origin: center center;
         overflow: hidden;
-    
       }
       .intro__eye-bg-box svg {
         width: 85.5rem;
@@ -84,7 +95,7 @@
         inset: 0;
         width: 100%;
         height: 100%;
-        background-color: #fff;
+        background-color: var(--color-white);
         transform: translateY(-100%);
         opacity: 0;
       }
@@ -92,19 +103,18 @@
 
     <title>Главная</title>
   </head>
-  <body style="overflow: hidden">
+  <body class="" style="overflow: hidden" >
     <div class="wrapper">
       <include src="./components/_intro.html"></include>
       <include src="./components/_header.html"></include>
-
+      <include src="./components/_cursor.html"></include>
       <main>
         <include src="./components/_banner.html"></include>
         <include src="./components/_beauty.html"></include>
       </main>
 
-
-      <include src="./components/_cursorTop.html"></include>
-      <include src="./components/_cursorBottom.html"></include>
+      <!-- <include src="./components/_cursorTop.html"></include>
+      <include src="./components/_cursorBottom.html"></include> -->
     </div>
   </body>
 </html>

@@ -1,3 +1,6 @@
+
+
+
 .banner {
   margin: -7.6rem auto 0;
   width: 192rem;
@@ -8,14 +11,13 @@
   overflow: hidden;
   position: relative;
   z-index: 20;
+
   background-size: contain;
   background-position: top center;
   background-size: 110% auto;
   background-position: 50% 50%;
   animation: bgMove 8s linear infinite;
-  &:hover ~ .cursor {
-    background-image: none;
-  }
+
 
   @keyframes bgMove {
     0% {
@@ -76,7 +78,7 @@
     font-weight: 400;
     font-size: 13.6rem;
     line-height: 88%;
-    color: $white;
+    color: var(--color-white);
   }
 
   /* .banner__info-wrapper */
@@ -129,7 +131,7 @@
     font-weight: 400;
     font-size: 2rem;
     text-transform: uppercase;
-    color: $white;
+    color: var(--color-white);
     display: flex;
     gap: 1rem;
     &::before {
@@ -138,7 +140,7 @@
       width: 0.7rem;
       height: 0.7rem;
       border-radius: 50%;
-      background-color: #d8eef7;
+      background-color: var(--color-white);
       margin-top: 0.7rem;
     }
   }
@@ -158,19 +160,19 @@
     font-weight: 400;
     font-size: 2rem;
     text-align: right;
-    color: $white;
+    color: var(--color-white);
   }
 
   /* .banner__info-btn */
 
   &__info-btn {
-    background: $blue;
+    background: var(--color-blue);
     padding: 2.8rem 9.8rem;
     border-radius: 1.2rem;
     font-weight: 400;
     font-size: 2rem;
     text-align: center;
-    color: $white;
+    color: var(--color-white);
     position: relative;
     z-index: 500;
     transition: background 0.4s;
