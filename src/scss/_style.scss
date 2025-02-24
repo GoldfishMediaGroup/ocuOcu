@@ -1,9 +1,8 @@
 @import './mixins';
 @import './flexs';
 
-$white: #f8f7f7;
-$black: #161f3e;
-$blue: #223064;
+
+
 
 html.lenis,
 html.lenis body {
@@ -28,8 +27,8 @@ html.lenis body {
 
 
 body {
-  background: $white;
-  color: $black;
+  background: var(--color-white);
+  color: var(--color-black);
   font-family: 'Carlito';
 
   .lock & {

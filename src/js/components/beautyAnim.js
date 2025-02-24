@@ -20,7 +20,6 @@ function beautyAnim() {
     const advantagesLine = document.querySelectorAll('.beauty__item-line');
     const advantagesCircle = document.querySelectorAll('.beauty__item-circle');
 
-
     const advantagesSvgBoxShow = document.querySelectorAll('.beauty__item-svg-box.beauty__item-svg-box--show');
     const advantagesSvgBoxHidden = document.querySelectorAll('.beauty__item-svg-box.beauty__item-svg-box--hidden');
     const advantagesSvgBoxShowOne = document.querySelectorAll(
@@ -104,9 +103,9 @@ function beautyAnim() {
         ease: 'power2.out'
       })
       .to(circle, {
-        duration: 0.8,
-        scale: 220,
-        ease: 'power2.out'
+        duration: 1,
+        width: '150vmax',
+        ease: 'power2.in'
       })
       .to(
         beautyBox,
@@ -115,33 +114,45 @@ function beautyAnim() {
           opacity: 0,
           ease: 'power2.out'
         },
-        '-=0.7'
+        '-=1'
       )
       .to(advantagesBox, {
         opacity: 1,
         duration: 0.2,
         ease: 'power2.out'
       })
-      .to(advantagesTitle, {
-        x: '-105%',
-        duration: 1.6,
-        ease: 'power2.out'
-      },'-=0.2')
+      .to(
+        advantagesTitle,
+        {
+          x: '-105%',
+          duration: 1.6,
+          ease: 'power2.out'
+        },
+        '-=0.2'
+      )
       .to(advantagesSvgBoxShow, {
         duration: 0.3,
         y: 0,
         ease: 'power2.out'
       })
-      .to(advantagesLine, {
-        duration: 0.3,
-        width: '100%',
-        ease: 'power2.out'
-      },'-=0.3')
-      .to(advantagesCircle, {
-        duration: 0.3,
-        opacity: 1,
-        ease: 'power2.out'
-      },'-=0.3')
+      .to(
+        advantagesLine,
+        {
+          duration: 0.3,
+          width: '100%',
+          ease: 'power2.out'
+        },
+        '-=0.3'
+      )
+      .to(
+        advantagesCircle,
+        {
+          duration: 0.3,
+          opacity: 1,
+          ease: 'power2.out'
+        },
+        '-=0.3'
+      )
       .to(
         advantagesTitleBoxShow,
         {
@@ -160,15 +171,10 @@ function beautyAnim() {
         },
         '-=0.3'
       )
-      .to(
-        advantagesTextBoxShow,
-        {
-          duration: 0.7,
-          ease: 'power2.out'
-        }
-      )
-
-
+      .to(advantagesTextBoxShow, {
+        duration: 0.7,
+        ease: 'power2.out'
+      })
 
       .to(advantagesSvgBoxHidden, {
         duration: 0.3,
@@ -193,12 +199,15 @@ function beautyAnim() {
         },
         '-=0.3'
       )
-      .to(advantagesSvgBoxShowOne, {
-        duration: 0.3,
-        y: '-100%',
-        ease: 'power2.out'
-      },
-      '-=0.3')
+      .to(
+        advantagesSvgBoxShowOne,
+        {
+          duration: 0.3,
+          y: '-100%',
+          ease: 'power2.out'
+        },
+        '-=0.3'
+      )
       .to(
         advantagesTitleBoxShowOne,
         {
@@ -217,15 +226,10 @@ function beautyAnim() {
         },
         '-=0.3'
       )
-      .to(
-        advantagesTextBoxShowOne,
-        {
-          duration: 0.7,
-          ease: 'power2.out'
-        }
-      )
-
- 
+      .to(advantagesTextBoxShowOne, {
+        duration: 0.7,
+        ease: 'power2.out'
+      });
   }
   beautySectionAnim();
 }

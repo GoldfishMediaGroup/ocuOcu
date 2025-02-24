@@ -13,6 +13,7 @@ import cursor from '../components/cursor';
 import beautyAnim from '../components/beautyAnim';
 
 import intro from '../components/intro';
+import changeTheme from '../components/changeTheme';
 
 import { bodyLock, bodyUnlock } from '../utils/constants';
 
@@ -23,11 +24,11 @@ document.body.style.overflow = 'hidden';
 
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
-
-
-
   try {
     ripplesBanner();
+  } catch {}
+  try {
+    changeTheme();
   } catch {}
   try {
     intro().then(() => {
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch {}
     });
   } catch {}
+
   try {
     cursor();
   } catch {}
