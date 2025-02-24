@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- общие -->
+
     <style>
       html {
         font-size: 0.5208335vw;
+        cursor: none;
       }
       :root {
         --color-white: #f8f7f7;
@@ -13,11 +16,9 @@
         --color-blue: #223064;
       }
       .light-theme {
- 
       }
 
       .dark-theme {
-        
       }
 
       @media (max-width: 48em) {
@@ -29,6 +30,22 @@
         }
       }
     </style>
+    <!-- курсор -->
+    <style>
+      .cursor {
+        position: fixed;
+        width: 4rem;
+        height: 4rem;
+        pointer-events: none; /* Чтобы не мешал кликам */
+        z-index: 999999;
+      }
+      .cursor img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+    <!-- прелоадер -->
     <style>
       .intro {
         position: fixed;
@@ -103,8 +120,12 @@
 
     <title>Главная</title>
   <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
-  <body class="" style="overflow: hidden" >
+  <body class="" style="overflow: hidden">
     <div class="wrapper">
+      <div class="cursor">
+  <img src="./assets/images/cursor1.webp" alt="">
+</div>
+
       <div class="intro">
 
   <div class="intro__eye-wrapper">
@@ -213,19 +234,6 @@
   </div>
 </header>
 
-      <div class="cursor__wrapper">
-    <div class="cursor" id="cursor" style="filter: url('#goo')"></div>
-
-    <svg style="display: none" xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
-      <defs>
-        <filter id="goo">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
-          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
-          <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
-        </filter>
-      </defs>
-    </svg>
-  </div>
       <main>
         <section class="banner data-ripples jquery-ripples" data-ripples-img="./assets/images/bannerBg.webp" style="background-image: none"> 
 <!-- data-ripples-img-light="./assets/images/bannerBg.webp"
@@ -375,27 +383,6 @@ data-ripples-img-dark="./assets/images/bannerBgOld.webp" -->
 </section>
 
       </main>
-
-      <!-- <div class="main-wrap-cursor-top">
-  <div class="wrap-lighten-cursor">
-    <div class="cursor">
-      <div class="cursor-rotate">
-        <div class="cursor-lighten-default"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <div class="main-wrap-cursor-bottom">
-  <div class="wrap-background-cursor-bottom">
-    <div class="cursor">
-      <div class="cursor-rotate" style="cursor: none; transform: rotate(-10915deg)">
-        <div class="cursor-background-default"></div>
-      </div>
-    </div>
-  </div>
-</div>
- -->
     </div>
   </body>
 </html>

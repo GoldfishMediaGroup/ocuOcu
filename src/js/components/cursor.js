@@ -1,113 +1,128 @@
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin, ScrollToPlugin } from 'gsap/all';
 
 function cursor() {
-  const cursorContainer = document.getElementById('cursor'),
-    floatingEffectStartIndex = Math.floor(6); // Количество элементов, которые ведут себя особым образом
+  const cursor = document.querySelector('.cursor');
 
-  let animationTimeout, // Таймер для задержки перед началом эффекта плавания
-    lastFrameTime = 0, // Время последнего обновления
-    cursorPosition = { x: 0, y: 0 }, // Текущая позиция курсора
-    cursorTrail = [], // Массив объектов следов курсора
-    floatingEffectEnabled = false; // Флаг для включения эффекта плавания
-
-  class CursorTrailElement {
-    constructor(index = 0) {
-      this.index = index;
-      this.anglespeed = 0.05; // Скорость колебания в режиме "плавания"
-      this.x = 0;
-      this.y = 0;
-      this.scale = 1 - 0.05 * index; // Масштаб следа (уменьшается с увеличением индекса)
-      this.range = 13 - 13 * this.scale + 2; // Амплитуда колебаний в режиме "плавания"
-      this.limit = 19.5 * this.scale; // Лимит смещения
-      this.element = document.createElement('span'); // Создаём элемент следа
-      gsap.set(this.element, { scale: this.scale }); // Устанавливаем начальный масштаб через GSAP
-      cursorContainer.appendChild(this.element); // Добавляем элемент в контейнер курсора
-    }
-
-    // Фиксируем текущие координаты элемента перед включением эффекта "плавания"
-    lockPosition() {
-      this.lockX = this.x;
-      this.lockY = this.y;
-      this.angleX = 2 * Math.PI * Math.random(); // Случайный угол для горизонтального движения
-      this.angleY = 2 * Math.PI * Math.random(); // Случайный угол для вертикального движения
-    }
-
-    // Отрисовываем элемент (включая эффект "плавания" при необходимости)
-    draw(deltaTime) {
-      if (floatingEffectEnabled && this.index > floatingEffectStartIndex) {
-        this.angleX += this.anglespeed;
-        this.angleY += this.anglespeed;
-        this.y = this.lockY + Math.sin(this.angleY) * this.range;
-        this.x = this.lockX + Math.sin(this.angleX) * this.range;
-      }
-      gsap.set(this.element, { x: this.x, y: this.y });
-    }
-  }
-
-  // Функция сбрасывает таймер перед активацией эффекта "плавания"
-  function resetFloatingEffect() {
-    clearTimeout(animationTimeout);
-    animationTimeout = setTimeout(enableFloatingEffect, 150);
-    floatingEffectEnabled = false;
-  }
-
-  // Включает эффект "плавания" после задержки
-  function enableFloatingEffect() {
-    floatingEffectEnabled = true;
-    cursorTrail.forEach((trail) => trail.lockPosition());
-  }
-
-  // Главный цикл анимации
-  function animationLoop(currentTime) {
-    updateCursorTrail(currentTime - lastFrameTime);
-    lastFrameTime = currentTime;
-    requestAnimationFrame(animationLoop);
-  }
-
-  // Обновляем позиции всех элементов следа
-  function updateCursorTrail(deltaTime) {
-    let x = cursorPosition.x,
-      y = cursorPosition.y;
-
-    cursorTrail.forEach((trail, index, array) => {
-      let nextTrail = array[index + 1] || array[0];
-      trail.x = x;
-      trail.y = y;
-      trail.draw(deltaTime);
-
-      if (!floatingEffectEnabled || index <= floatingEffectStartIndex) {
-        const dx = 0.35 * (nextTrail.x - trail.x);
-        const dy = 0.35 * (nextTrail.y - trail.y);
-        x += dx;
-        y += dy;
-      }
-    });
-  }
-
-  // Обрабатываем движение мыши
-  window.addEventListener('mousemove', (event) => {
-    cursorPosition.x = event.clientX - 13;
-    cursorPosition.y = event.clientY - 13;
-    resetFloatingEffect();
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
   });
 
-  // Обрабатываем движение пальца на мобильных устройствах
-  window.addEventListener('touchmove', (event) => {
-    cursorPosition.x = event.touches[0].clientX - 13;
-    cursorPosition.y = event.touches[0].clientY - 13;
-    resetFloatingEffect();
-  });
+  
 
-  // Заполняем массив следов курсора
-  (function initializeCursorTrail() {
-    for (let i = 0; i < 20; i++) {
-      let trailElement = new CursorTrailElement(i);
-      cursorTrail.push(trailElement);
-    }
-  })();
+  // ////////////////////////////////////////////////////////////////////////////////////////////////////
+  // ////////////////////////////////////////////////////////////////////////////////////////////////////
+  // ////////////////////////////////////////////////////////////////////////////////////////////////////
+  // ////////////////////////////////////////////////////////////////////////////////////////////////////
+  // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Запускаем анимацию
-  animationLoop();
+  // const cursorContainer = document.getElementById('cursor'),
+  //   floatingEffectStartIndex = Math.floor(6); // Количество элементов, которые ведут себя особым образом
+
+  // let animationTimeout, // Таймер для задержки перед началом эффекта плавания
+  //   lastFrameTime = 0, // Время последнего обновления
+  //   cursorPosition = { x: 0, y: 0 }, // Текущая позиция курсора
+  //   cursorTrail = [], // Массив объектов следов курсора
+  //   floatingEffectEnabled = false; // Флаг для включения эффекта плавания
+
+  // class CursorTrailElement {
+  //   constructor(index = 0) {
+  //     this.index = index;
+  //     this.anglespeed = 0.05; // Скорость колебания в режиме "плавания"
+  //     this.x = 0;
+  //     this.y = 0;
+  //     this.scale = 1 - 0.05 * index; // Масштаб следа (уменьшается с увеличением индекса)
+  //     this.range = 13 - 13 * this.scale + 2; // Амплитуда колебаний в режиме "плавания"
+  //     this.limit = 19.5 * this.scale; // Лимит смещения
+  //     this.element = document.createElement('span'); // Создаём элемент следа
+  //     gsap.set(this.element, { scale: this.scale }); // Устанавливаем начальный масштаб через GSAP
+  //     cursorContainer.appendChild(this.element); // Добавляем элемент в контейнер курсора
+  //   }
+
+  //   // Фиксируем текущие координаты элемента перед включением эффекта "плавания"
+  //   lockPosition() {
+  //     this.lockX = this.x;
+  //     this.lockY = this.y;
+  //     this.angleX = 2 * Math.PI * Math.random(); // Случайный угол для горизонтального движения
+  //     this.angleY = 2 * Math.PI * Math.random(); // Случайный угол для вертикального движения
+  //   }
+
+  //   // Отрисовываем элемент (включая эффект "плавания" при необходимости)
+  //   draw(deltaTime) {
+  //     if (floatingEffectEnabled && this.index > floatingEffectStartIndex) {
+  //       this.angleX += this.anglespeed;
+  //       this.angleY += this.anglespeed;
+  //       this.y = this.lockY + Math.sin(this.angleY) * this.range;
+  //       this.x = this.lockX + Math.sin(this.angleX) * this.range;
+  //     }
+  //     gsap.set(this.element, { x: this.x, y: this.y });
+  //   }
+  // }
+
+  // // Функция сбрасывает таймер перед активацией эффекта "плавания"
+  // function resetFloatingEffect() {
+  //   clearTimeout(animationTimeout);
+  //   // animationTimeout = setTimeout(enableFloatingEffect, 150);
+  //   floatingEffectEnabled = false;
+  // }
+
+  // // Включает эффект "плавания" после задержки
+  // function enableFloatingEffect() {
+  //   floatingEffectEnabled = true;
+  //   cursorTrail.forEach((trail) => trail.lockPosition());
+  // }
+
+  // // Главный цикл анимации
+  // function animationLoop(currentTime) {
+  //   updateCursorTrail(currentTime - lastFrameTime);
+  //   lastFrameTime = currentTime;
+  //   requestAnimationFrame(animationLoop);
+  // }
+
+  // // Обновляем позиции всех элементов следа
+  // function updateCursorTrail(deltaTime) {
+  //   let x = cursorPosition.x,
+  //     y = cursorPosition.y;
+
+  //   cursorTrail.forEach((trail, index, array) => {
+  //     let nextTrail = array[index + 1] || array[0];
+  //     trail.x = x;
+  //     trail.y = y;
+  //     trail.draw(deltaTime);
+
+  //     if (!floatingEffectEnabled || index <= floatingEffectStartIndex) {
+  //       const dx = 0.35 * (nextTrail.x - trail.x);
+  //       const dy = 0.35 * (nextTrail.y - trail.y);
+  //       x += dx;
+  //       y += dy;
+  //     }
+  //   });
+  // }
+
+  // // Обрабатываем движение мыши
+  // window.addEventListener('mousemove', (event) => {
+  //   cursorPosition.x = event.clientX - 13;
+  //   cursorPosition.y = event.clientY - 13;
+  //   resetFloatingEffect();
+  // });
+
+  // // Обрабатываем движение пальца на мобильных устройствах
+  // window.addEventListener('touchmove', (event) => {
+  //   cursorPosition.x = event.touches[0].clientX - 13;
+  //   cursorPosition.y = event.touches[0].clientY - 13;
+  //   resetFloatingEffect();
+  // });
+
+  // // Заполняем массив следов курсора
+  // (function initializeCursorTrail() {
+  //   for (let i = 0; i < 20; i++) {
+  //     let trailElement = new CursorTrailElement(i);
+  //     cursorTrail.push(trailElement);
+  //   }
+  // })();
+
+  // // Запускаем анимацию
+  // animationLoop();
 
   // Mazette скрипт: Пользовательский курсор с движением и вращением
 
